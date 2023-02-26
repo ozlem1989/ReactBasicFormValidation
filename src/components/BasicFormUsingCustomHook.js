@@ -1,4 +1,4 @@
-import useInput from "../hooks/use-input";
+import useInputWithUseReducer from "../hooks/use-input-withUseReducer";
 
 const isInputEmpty = (value) => value.trim() !== "";
 const isEmail = (value) => value.includes("@");
@@ -11,7 +11,7 @@ const BasicFormUsingCustomHook = (props) => {
     valueChangeHandler: firstNameChangeHandler,
     valueBlurHandler: firstNameBlurHandler,
     reset: resetFirstName,
-  } = useInput(isInputEmpty);
+  } = useInputWithUseReducer(isInputEmpty);
 
   const {
     value: enteredLastName,
@@ -20,7 +20,7 @@ const BasicFormUsingCustomHook = (props) => {
     valueChangeHandler: lastNameChangeHandler,
     valueBlurHandler: lastNameBlurHandler,
     reset: resetLastName,
-  } = useInput(isInputEmpty);
+  } = useInputWithUseReducer(isInputEmpty);
 
   const {
     value: enteredEmail,
@@ -29,7 +29,7 @@ const BasicFormUsingCustomHook = (props) => {
     valueChangeHandler: emailChangeHandler,
     valueBlurHandler: emailBlurHandler,
     reset: resetEmail,
-  } = useInput(isEmail);
+  } = useInputWithUseReducer(isEmail);
 
   const formIsValid = firstNameIsValid && lastNameIsValid && emailIsValid;
 
